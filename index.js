@@ -55,7 +55,7 @@ if (isbotexist == true) return msg.channel.send(`There is already a bot running.
   })
 
   bot.on("message", message => {
-    let channel = client.channels.cache.get(config.scid)
+    let channel = client.channels.cache.get(process.env.SCID||config.scid)
     
     if (!channel) return;
     channel.send(`From Server Chat >> ${message}`)
